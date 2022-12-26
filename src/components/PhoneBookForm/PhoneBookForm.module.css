@@ -1,0 +1,26 @@
+.formStyle {
+  border: 2px solid grey;
+  padding: 20px;
+}
+
+.labelStyle {
+  font-style: 20px;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.inputStyle {
+  background-color: rgb(219, 219, 219);
+  border: 3px solid transparent;
+  height: 20px;
+  font-size: 18px;
+}
+
+.inputStyle:hover,
+.inputStyle:focus {
+  border: 3px solid rgb(60, 159, 167);
+}
+
+p {
+  margin: 0 0 10px;
+}
