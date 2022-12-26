@@ -1,6 +1,9 @@
 .formStyle {
+  display: flex;
+  flex-direction: column;
   border: 2px solid grey;
   padding: 20px;
+  width: 300px;
 }
 
 .labelStyle {
@@ -10,17 +13,25 @@
 }
 
 .inputStyle {
-  background-color: rgb(219, 219, 219);
+  box-shadow: inset 0px 0px 1px 1px grey;
   border: 3px solid transparent;
+  margin-left: -3px;
   height: 20px;
   font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .inputStyle:hover,
 .inputStyle:focus {
-  border: 3px solid rgb(60, 159, 167);
+  box-shadow: none;
+  border: 3px solid rgb(113, 230, 238);
+  border-radius: 5px;
 }
 
 p {
   margin: 0 0 10px;
+}
+
+.addButton {
+  width: 100px;
 }
