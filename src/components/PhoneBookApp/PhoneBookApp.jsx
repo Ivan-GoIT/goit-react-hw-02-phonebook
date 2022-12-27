@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Section } from 'components/Section/Section';
 import { PhoneBookForm } from 'components/PhoneBookForm/PhoneBookForm';
-import { Contacts } from 'components/Contacts/Contacts';
+import { ContactsList } from 'components/ContactsList/ContactsList';
 import { nanoid } from 'nanoid';
 import { FilterByName } from 'components/FilterByName/FilterByName';
 
@@ -33,6 +33,12 @@ export class PhoneBookApp extends Component {
   contactListToDisplay = (contacts, filter) =>
     contacts.filter(({ name }) => name.toLowerCase().includes(filter));
 
+  handleDeleteContact = id => {
+    this.setState(({ contacts: prevContacts }) => ({
+      contacts: prevContacts.filter(({ id: contactId }) => contactId !== id),
+    }));
+  };
+
   render() {
     const { contacts, filter } = this.state;
     const normalizedFilter = this.filterNormalize(filter);
@@ -49,8 +55,11 @@ export class PhoneBookApp extends Component {
         <Section>
           <FilterByName filter={filter} onChange={this.handleFilterChange} />
         </Section>
-        <Section title="Contacts">
-          <Contacts contactList={contactsToDisplay} />
+        <Section title="ContactsList">
+          <ContactsList
+            contactList={contactsToDisplay}
+            onDelete={this.handleDeleteContact}
+          />
         </Section>
       </>
     );
