@@ -12,17 +12,21 @@ export class PhoneBookForm extends Component {
     this.setState({ [name]: value });
   };
 
-  handleFormSubmit = evt => {
+  resetState = () => {
+    this.setState({ name: '', number: '' });
+  };
+
+  handleSubmit = evt => {
     evt.preventDefault();
     const { name, number } = this.state;
-    this.props.onSubmit({ name, number });
-    this.setState({ name: '', number: '' });
+    this.props.onSubmitForm({ name, number });
+    this.resetState();
   };
 
   render() {
     const { name, number } = this.state;
     return (
-      <form className={css.formStyle} onSubmit={this.handleFormSubmit}>
+      <form className={css.formStyle} onSubmit={this.handleSubmit}>
         <label>
           <p className={css.labelStyle}>Name</p>
           <input
