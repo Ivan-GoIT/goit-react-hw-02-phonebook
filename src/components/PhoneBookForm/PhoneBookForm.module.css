@@ -28,6 +28,10 @@
   border-radius: 5px;
 }
 
+.inputStyle:focus-visible {
+  outline: none;
+}
+
 p {
   margin: 0 0 10px;
 }

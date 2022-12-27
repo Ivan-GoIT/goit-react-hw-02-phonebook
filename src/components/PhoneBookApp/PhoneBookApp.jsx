@@ -12,16 +12,12 @@ export class PhoneBookApp extends Component {
     filter: '',
   };
 
-  handleSubmitForm = evt => {
-    evt.preventDefault();
-    this.setState(({ contacts, name, number }) => {
-      contacts.push({ id: nanoid(), name, number });
-    });
-    this.setState({ name: '', number: '' });
-  };
-
-  handleCanngeInput = evt => {
-    this.setState({ [evt.target.name]: evt.target.value });
+  handleSubmitForm = ({ name, number }) => {
+    this.setState(({ contacts: prevContacts, }) => ({
+      contacts: [...prevContacts, { id: nanoid(), name, number }],
+      name,
+      number,
+    }));
   };
 
   render() {
@@ -33,7 +29,6 @@ export class PhoneBookApp extends Component {
             name={name}
             number={number}
             onSubmit={this.handleSubmitForm}
-            onChange={this.handleCanngeInput}
           />
         </Section>
         <Section title="Contacts">
