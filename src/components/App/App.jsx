@@ -17,7 +17,10 @@ export class App extends Component {
     }).length;
 
   handleSubmitForm = ({ name, number }) => {
-    if (this.isContactInState({ name, number })) return;
+    if (this.isContactInState({ name, number })) {
+      alert('Contact is in phonebook');
+      return;
+    }
 
     this.setState(({ contacts: prevContacts }) => ({
       contacts: [...prevContacts, { id: nanoid(), name, number }],
