@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import css from './PhoneBookForm.module.css';
-
+import { PropTypes } from 'prop-types';
 export class PhoneBookForm extends Component {
   state = {
     name: '',
@@ -12,21 +12,18 @@ export class PhoneBookForm extends Component {
     this.setState({ [name]: value });
   };
 
-  resetState = () => {
-    this.setState({ name: '', number: '' });
-  };
-
-  handleSubmit = evt => {
+  handleFormSubmit = evt => {
     evt.preventDefault();
     const { name, number } = this.state;
+   // console.dir(this.props.onSubmit);
     this.props.onSubmitForm({ name, number });
-    this.resetState();
+    this.setState({ name: '', number: '' });
   };
 
   render() {
     const { name, number } = this.state;
     return (
-      <form className={css.formStyle} onSubmit={this.handleSubmit}>
+      <form className={css.formStyle} onSubmit={this.handleFormSubmit}>
         <label>
           <p className={css.labelStyle}>Name</p>
           <input
@@ -59,4 +56,8 @@ export class PhoneBookForm extends Component {
       </form>
     );
   }
+}
+
+PhoneBookForm.propTypes = {
+  onSubmit:PropTypes.object,
 }

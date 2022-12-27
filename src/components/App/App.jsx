@@ -5,7 +5,7 @@ import { ContactsList } from 'components/ContactsList/ContactsList';
 import { nanoid } from 'nanoid';
 import { FilterByName } from 'components/FilterByName/FilterByName';
 
-export class PhoneBookApp extends Component {
+export class App extends Component {
   state = {
     contacts: [],
     filter: '',

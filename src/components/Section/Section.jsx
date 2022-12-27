@@ -12,3 +12,8 @@ Section.propTypes = {
   title: PropTypes.string,
   children: PropTypes.element,
 };
+
+Section.propTypes = {
+  title:PropTypes.string,
+  children:PropTypes.element,
+};
